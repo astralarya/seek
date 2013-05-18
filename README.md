@@ -13,7 +13,9 @@ Source `seek.sh` in your .\*rc file.
 seek [OPTION] [PATTERN]
 
 Options
-* -, -cd, -to	Change directory to the deepest directory containing all matches
+* -  
+  -cd  
+  -to	Change directory to the deepest directory containing all matches
 * -\*		Pass argument to find. Colons are interpreted as spaces (ie. -type:d = -type d)
 * -h		Show help
 
