@@ -1,6 +1,6 @@
 # seek
 
-**seek** - Find and jump to subdirectories matching patterns
+**seek** - Search current directory for files and folders
 
 
 ## Installation
@@ -13,11 +13,32 @@ Source `seek.sh` in your .\*rc file.
 seek [OPTION] [PATTERN]
 
 Options
-* -, -cd, -to	Change current directory to the lowest unambiguous directory containing all matches
+* -, -cd, -to	Change directory to the lowest directory containing all matches
 * -\*		Pass argument to find. Colons are interpreted as spaces (ie. -type:d = -type d)
 * -h		Show help
 
-Patterns automatically wildcard slashes (ie. / = \*/\* )
+Arguments are order independent, except for the special **--** argument which causes the script to treat all following arguments as patterns.
+
+A pattern consists of a number of parts separated by forward slashes.
+    foo/bar
+The final (rightmost) part is matched against the *name*, while the entire pattern is matched against the *path*. If there are no slashes, the entire pattern is matched against the name.  
+
+Wildcards are implicitly added around each slash, as well as the beginning and end of the pattern. The pattern above would translate to:
+    *foo*/*bar*
+
+The -/-cd/-to option changes the current directory to the deepest directory that contains all matches, or returns 1 if this is equal to the current directory.
+
+
+## Examples
+
+Search for files and folders in the current directory with names containing foo
+> seek foo
+
+Search for files and folders in the current directory with names containing bar in a directory containing foo
+> seek foo/bar
+
+Change directory to the deepest directory containing all matches
+> seek foo/bar -
 
 
 ## License
