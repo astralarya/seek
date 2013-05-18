@@ -17,7 +17,7 @@ Options
 * -\*		Pass argument to find. Colons are interpreted as spaces (ie. -type:d = -type d)
 * -h		Show help
 
-Patterns automatically wildcard slashes (ie. / = */* )
+Patterns automatically wildcard slashes (ie. / = \*/\* )
 
 
 ## License
