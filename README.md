@@ -15,7 +15,7 @@ seek [OPTION] [PATTERN]
 Options
 * __-h__ : Show help
 * __-__, __-cd__, __-to__ : Change directory to the deepest directory containing all matches
-* __-\*__ : Pass argument to find. Colons are interpreted as spaces (ie. -type:d = -type d)
+* __-\*__ : Pass argument to `find`. Colons are interpreted as spaces (ie. -type:d = -type d)
 
 Arguments are order independent, except for the special __--__ argument which causes the script to treat all following arguments as patterns.
 
