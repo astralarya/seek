@@ -91,6 +91,7 @@ Patterns automatically wildcard slashes (ie. / = */* )
         if [ "${#targets[@]}" -lt 1 ]
         then
             \printf 'Not found: %b\n' "${rawinput[@]}"
+            return 1
         else
             local finder
             local trimmer
