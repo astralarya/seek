@@ -24,7 +24,7 @@ A pattern consists of a number of parts separated by forward slashes.
 
 The final (rightmost) part is matched against the *name*, while the entire pattern is matched against the *path*. If there are no slashes, the entire pattern is matched against the name.  
 
-Wildcards are implicitly added around each slash, as well as the beginning and end of the pattern. The pattern above would translate to:
+Wildcards are implicitly added at the beginning and end of the pattern, as well as around each slash. The pattern above would translate to:
 > \*foo\*/\*bar\*
 
 The -/-cd/-to option changes the current directory to the deepest directory that contains all matches, or returns 1 if this is equal to the current directory.
