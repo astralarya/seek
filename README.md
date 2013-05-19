@@ -27,7 +27,7 @@ The final (rightmost) part is matched against the _name_, while the entire patte
 Wildcards are implicitly added at the beginning and end of the pattern, as well as around each slash. The pattern above would translate to:
 > \*foo\*/\*bar\*
 
-The __-__/__-cd__/__-to__ option changes the current directory to the deepest directory that contains all matches, or returns 1 if this is equal to the current directory. This is done by finding the largest shared prefix of all matches that refers to a directory.
+The __-__ / __-cd__ / __-to__ option changes the current directory to the deepest directory that contains all matches, or returns 1 if this is equal to the current directory. This is done by finding the largest shared prefix of all matches that refers to a directory.
 
 
 ## Examples
