@@ -115,6 +115,7 @@ Patterns automatically wildcard slashes (ie. / = */* )
             if [ "$(\readlink -e -- "$finder")" != "$(\readlink -e -- "$PWD")" ]
             then
                 \cd -- "$finder"
+                return $?
             else
                 return 1
             fi
