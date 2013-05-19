@@ -74,7 +74,7 @@ Patterns automatically wildcard slashes (ie. / = */* )
     if [ -z "$input" ]
     then
         \find $preoption "$PWD" "${option[@]}"
-        return 0
+        return $?
     fi
 
     input+=( ')' )
@@ -122,6 +122,7 @@ Patterns automatically wildcard slashes (ie. / = */* )
     else
         # search with parameters
         \find $preoption "$PWD" "${input[@]}" "${option[@]}"
+        return $?
     fi
 }
 
