@@ -44,7 +44,7 @@ Change directory to the deepest directory containing all matches
 
 ## License
 
-seek - v1.0.1
+seek - v1.1
 
 Copyright (C) 2013  Mara Kim
 

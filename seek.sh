@@ -1,4 +1,4 @@
-# seek - v1.0.1
+# seek - v1.1
 # Search directories for file
 #
 # Copyright (C) 2013 Mara Kim
