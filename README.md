@@ -13,16 +13,16 @@ Source `seek.sh` in your .\*rc file.
 seek [OPTION] [PATTERN]
 
 Options
-* **-**, **-cd**, **-to** : Change directory to the deepest directory containing all matches
-* ** -\* ** : Pass argument to find. Colons are interpreted as spaces (ie. -type:d = -type d)
-* **-h** : Show help
+* __-h__ : Show help
+* __-__, __-cd__, __-to__ : Change directory to the deepest directory containing all matches
+* __-\*__ : Pass argument to find. Colons are interpreted as spaces (ie. -type:d = -type d)
 
-Arguments are order independent, except for the special **--** argument which causes the script to treat all following arguments as patterns.
+Arguments are order independent, except for the special __--__ argument which causes the script to treat all following arguments as patterns.
 
 A pattern consists of a number of parts separated by forward slashes.
 > foo/bar
 
-The final (rightmost) part is matched against the *name*, while the entire pattern is matched against the *path*. If there are no slashes, the entire pattern is matched against the name.  
+The final (rightmost) part is matched against the _name_, while the entire pattern is matched against the _path_. If there are no slashes, the entire pattern is matched against the name.  
 
 Wildcards are implicitly added at the beginning and end of the pattern, as well as around each slash. The pattern above would translate to:
 > \*foo\*/\*bar\*
