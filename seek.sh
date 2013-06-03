@@ -25,6 +25,7 @@ function seek {
     # read arguments
     local option
     local preoption
+    local printoption
     local op_cd
     local input
     local rawinput
@@ -60,6 +61,9 @@ Patterns automatically wildcard slashes (ie. / = */* )
             elif [ "$arg" = "-P" -o "$arg" = "-L" -o "$arg" = "-H" ]
             then
                 preoption="$arg"
+            elif [ -z "${arg##-*print*}" ]
+            then
+                printoption+=( ${arg//:/ } )
             else
                 option+=( ${arg//:/ } )
             fi
@@ -73,7 +77,7 @@ Patterns automatically wildcard slashes (ie. / = */* )
     # search using find, no parameters
     if [ -z "$input" ]
     then
-        \find $preoption "$PWD" "${option[@]}"
+        \find $preoption "$PWD" "${option[@]}" "${printoption[@]}"
         return $?
     fi
 
@@ -122,7 +126,7 @@ Patterns automatically wildcard slashes (ie. / = */* )
         fi
     else
         # search with parameters
-        \find $preoption "$PWD" "${input[@]}" "${option[@]}"
+        \find $preoption "$PWD" "${input[@]}" "${option[@]}" "${printoption[@]}"
         return $?
     fi
 }
