@@ -57,7 +57,7 @@ Patterns automatically wildcard slashes (ie. / = */* )
         elif [ "$arg" = "--" ]
         then
             state="input"
-        elif [ -z "${arg##+*}" ]
+        elif [ -z "${arg##+*}" -a "${arg#+}" ]
         then
             exec_op=${arg#+}
             execoption+=( '-execdir' 'bash' '-c' "eval ${exec_op}" ';' )
