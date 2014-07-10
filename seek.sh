@@ -60,7 +60,7 @@ Patterns automatically wildcard slashes (ie. / = */* )
         elif [ -z "${arg##+*}" ]
         then
             exec_op=${arg#+}
-            execoption+=( '-exec' ${exec_op} ';' )
+            execoption+=( '-execdir' 'bash' '-c' "eval ${exec_op}" ';' )
         elif [ -z "${arg##-*}" ]
         then
             if [ "$arg" = "-" -o "$arg" = "-cd" -o "$arg" = "-to" ]
@@ -85,7 +85,7 @@ Patterns automatically wildcard slashes (ie. / = */* )
     # search using find, no parameters
     if [ -z "$input" ]
     then
-        \find $preoption "$PWD" "${option[@]}" "${printoption[@]}"
+        \find $preoption "$PWD" "${option[@]}" "${printoption[@]}" "${execoption[@]}"
         return $?
     fi
 
