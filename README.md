@@ -37,15 +37,20 @@ The __-__ / __-cd__ / __-to__ option changes the current directory to the deepes
 Search for files and folders in the current directory with names containing foo
 > seek foo
 
-Search for files and folders in the current directory with names containing bar in a directory containing foo
+Search for directories with names containing foo
+> seek -type:d foo
+
+Delete all files with names containing foo
+> seek -delete foo
+
+Search for files and folders with names containing bar in a directory containing foo
 > seek foo/bar
 
 Change directory to the deepest directory containing all matches
 > seek foo/bar -
 
-Use `cat` to examine all matches
+Pass all matches to `cat`
 > seek foo/bar +'cat {}'
-
 
 ## License
 
