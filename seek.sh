@@ -48,7 +48,8 @@ Search the current directory and any children for files matching PATTERN.
 Patterns automatically wildcard slashes (ie. / = */* )
   Option	Meaning
   -, -cd, -to	Change directory to the deepest directory containing all matches
-  +command	Pass all matches as arguments to command. Equivalent to "find -exec command {} +"
+  +command	Pass all matches as arguments to command, replacing instances of `{}` with matching files.
+		Equivalent to "find -exec command {} ;"
   -*		Pass argument to find. Colons are interpreted as spaces (ie. -type:d = -type d)
   -h		Show help
 '
@@ -59,7 +60,7 @@ Patterns automatically wildcard slashes (ie. / = */* )
         elif [ -z "${arg##+*}" ]
         then
             exec_op=${arg#+}
-            execoption+=( '-exec' ${exec_op} '{}' '+' )
+            execoption+=( '-exec' ${exec_op} ';' )
         elif [ -z "${arg##-*}" ]
         then
             if [ "$arg" = "-" -o "$arg" = "-cd" -o "$arg" = "-to" ]

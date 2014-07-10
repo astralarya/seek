@@ -16,6 +16,8 @@ Options
 * __-h__ : Show help
 * __-__, __-cd__, __-to__ : `cd` to the deepest directory containing all matches
 * __-\*__ : Pass argument to `find`. Colons are interpreted as spaces (ie. -type:d = -type d)
+* +command: Pass all matches as arguments to command, replacing instances of `{}` with matching files.
+	    Equivalent to "find -exec command {} ;".
 
 Arguments are order independent, except for the special __--__ argument which causes the script to treat all following arguments as patterns.
 
@@ -40,6 +42,9 @@ Search for files and folders in the current directory with names containing bar 
 
 Change directory to the deepest directory containing all matches
 > seek foo/bar -
+
+Use `cat` all to examine all matches
+> seek foo/bar +'cat {}'
 
 
 ## License
