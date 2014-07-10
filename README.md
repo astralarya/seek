@@ -40,7 +40,7 @@ Search for files and folders in the current directory with names containing foo
 Search for directories with names containing foo
 > seek -type:d foo
 
-Delete all files with names containing foo
+Delete all files with names containing foo (See `man find`)
 > seek -delete foo
 
 Search for files and folders with names containing bar in a directory containing foo
