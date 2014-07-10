@@ -49,7 +49,6 @@ Patterns automatically wildcard slashes (ie. / = */* )
   Option	Meaning
   -, -cd, -to	Change directory to the deepest directory containing all matches
   +command	Pass all matches as arguments to command, replacing instances of `{}` with matching files.
-		Equivalent to "find -exec command {} ;"
   -*		Pass argument to find. Colons are interpreted as spaces (ie. -type:d = -type d)
   -h, -?	Show help
 '
