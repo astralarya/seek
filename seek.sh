@@ -43,7 +43,7 @@ function seek {
             appender='-o'
         elif [ "$arg" = "-h" -o "$arg" = "--help" ]
         then
-            \printf 'Usage: seek [OPTION] [PATTERN]
+            printf 'Usage: seek [OPTION] [PATTERN]
 Search the current directory and any children for files matching PATTERN.
 Patterns automatically wildcard slashes (ie. / = */* )
   Option	Meaning
@@ -85,7 +85,7 @@ Patterns automatically wildcard slashes (ie. / = */* )
     # search using find, no parameters
     if [ -z "$input" ]
     then
-        \find $preoption "$PWD" "${option[@]}" "${printoption[@]}" "${execoption[@]}"
+        find $preoption "$PWD" "${option[@]}" "${printoption[@]}" "${execoption[@]}"
         return $?
     fi
 
@@ -95,14 +95,14 @@ Patterns automatically wildcard slashes (ie. / = */* )
         # find lowest unambiguous subdiretory containing all matches
         local targets
         local target
-        while \read -r -d '' target
+        while read -r -d '' target
         do
             targets+=( "$target" )
-        done < <(\find $preoption "$PWD" "${input[@]}" "${option[@]}" -print0)
+        done < <(find $preoption "$PWD" "${input[@]}" "${option[@]}" -print0)
 
         if [ "${#targets[@]}" -lt 1 ]
         then
-            \printf 'Not found: %b\n' "${rawinput[@]}" 1>&2
+            printf 'Not found: %b\n' "${rawinput[@]}" 1>&2
             return 1
         else
             local finder
@@ -118,15 +118,15 @@ Patterns automatically wildcard slashes (ie. / = */* )
             done
             local filter
             filter="${targets[@]#$targets}"
-            if [ -z "$target" -a -d "$finder$trimmer" -a -z "$(\printf '%b' "${filter##/*}")" ]
+            if [ -z "$target" -a -d "$finder$trimmer" -a -z "$(printf '%b' "${filter##/*}")" ]
             then
                 finder+="$trimmer"
             fi
 
-            \printf '%b\n' "${targets[@]}"
-            if [ "$(\readlink -e -- "$finder")" != "$(\readlink -e -- "$PWD")" ]
+            printf '%b\n' "${targets[@]}"
+            if [ "$(readlink -e -- "$finder")" != "$(readlink -e -- "$PWD")" ]
             then
-                \cd -- "$finder"
+                cd -- "$finder"
                 return $?
             else
                 return 1
@@ -134,7 +134,7 @@ Patterns automatically wildcard slashes (ie. / = */* )
         fi
     else
         # search with parameters
-        \find $preoption "$PWD" "${input[@]}" "${option[@]}" "${printoption[@]}" "${execoption[@]}"
+        find $preoption "$PWD" "${input[@]}" "${option[@]}" "${printoption[@]}" "${execoption[@]}"
         return $?
     fi
 }
