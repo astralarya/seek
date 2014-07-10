@@ -16,7 +16,7 @@ Options
 * __-h__, __-?__ : Show help
 * __-__, __-cd__, __-to__ : `cd` to the deepest directory containing all matches
 * __+command__: Pass all matches as arguments to command, replacing instances of `{}` with matching files.
-  * Equivalent to "find -exec command {} ;".
+  * Equivalent to "find -execdir command {} ;".
 * __-\*__ : Pass argument to `find`. Colons are interpreted as spaces (ie. -type:d = -type d)
 
 Arguments are order independent, except for the special __--__ argument which causes the script to treat all following arguments as patterns.
