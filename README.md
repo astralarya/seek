@@ -57,7 +57,7 @@ Print all matches and their working directories
 
 ## License
 
-seek - v1.1
+seek - v1.2
 
 Copyright (C) 2013  Mara Kim
 
