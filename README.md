@@ -13,7 +13,7 @@ Source `seek.sh` in your .\*rc file.
 seek [OPTION] [PATTERN]
 
 Options
-* __-h__ : Show help
+* __-h__, __-?__ : Show help
 * __-__, __-cd__, __-to__ : `cd` to the deepest directory containing all matches
 * __+command__: Pass all matches as arguments to command, replacing instances of `{}` with matching files.
   * Equivalent to "find -exec command {} ;".

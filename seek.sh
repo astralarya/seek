@@ -41,7 +41,7 @@ function seek {
             input+=("$appender" '(' -name "*${arg##*/}*" -path "*${arg//\//*/*}*" ')' )
             rawinput+=("$arg")
             appender='-o'
-        elif [ "$arg" = "-h" -o "$arg" = "--help" ]
+        elif [ "$arg" = "-?" -o "$arg" = "-h" -o "$arg" = "--help" ]
         then
             printf 'Usage: seek [OPTION] [PATTERN]
 Search the current directory and any children for files matching PATTERN.
@@ -51,7 +51,7 @@ Patterns automatically wildcard slashes (ie. / = */* )
   +command	Pass all matches as arguments to command, replacing instances of `{}` with matching files.
 		Equivalent to "find -exec command {} ;"
   -*		Pass argument to find. Colons are interpreted as spaces (ie. -type:d = -type d)
-  -h		Show help
+  -h, -?	Show help
 '
             return 0
         elif [ "$arg" = "--" ]
