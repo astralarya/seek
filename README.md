@@ -52,6 +52,9 @@ Change directory to the deepest directory containing all matches
 Pass all matches to `cat`
 > seek foo/bar +'cat {}'
 
+Print all matches and their working directories
+> seek foo/bar +'echo {} $(pwd)'
+
 ## License
 
 seek - v1.1
