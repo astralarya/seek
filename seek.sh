@@ -27,7 +27,6 @@ function seek {
     local preoption
     local printoption
     local execoption
-    local exec_op
     local op_cd
     local input
     local rawinput
@@ -59,8 +58,7 @@ See `man find`.
             state="input"
         elif [ -z "${arg##+*}" -a "${arg#+}" ]
         then
-            exec_op=${arg#+}
-            execoption+=( '-execdir' 'bash' '-c' "eval ${exec_op}" ';' )
+            execoption+=( '-execdir' 'bash' '-c' "eval ${arg#+}" ';' )
         elif [ -z "${arg##-*}" ]
         then
             if [ "$arg" = "-" -o "$arg" = "-cd" -o "$arg" = "-to" ]
